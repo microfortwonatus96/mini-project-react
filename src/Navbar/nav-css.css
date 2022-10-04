@@ -1,0 +1,72 @@
+body{
+    /* background-color: #141414; */
+    overflow-x: hidden;
+    position: relative;
+}
+
+.netflix-padding-left{
+    padding-left: 57px !important;
+}
+.netflix-padding-right{
+    padding-right: 57px !important;
+}
+
+.netflix-navbar{
+    /* background-color: #0c0c0c; */
+    position: fixed;
+    width: 100vw;
+    z-index: 1000;
+    transition: background 0.2s linear;
+}
+.bg-sc{
+    background-color: #0c0c0c;
+}
+.bg-w{
+    background-color: gold;
+}
+.netflix-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.navbar-brand img{
+    width: 100px;
+}
+.text-style-nav{
+    color: rgba(255, 255, 255, 0.619);
+    text-decoration: none;
+}
+.text-style-nav:hover{
+    color: #fff;
+}
+/* dropdown */
+.netflix-dropdown-box{
+    display: none;
+}
+.netflix-dropdown{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 9px;
+}
+.netflix-dropdown-box .dropdown-menu{
+    background-color: rgba(0, 0, 0, 0.796);
+    font-size: 9px !important;
+    color: #fff;
+    margin-left: -80px;
+    border-top: 3px solid #fff;
+    margin-top: 30px;
+}
+.netflix-dropdown-box .dropdown-menu .dropdown-item{
+    color: rgba(255, 255, 255, 0.769);
+    text-align: center;
+    width: 250px;
+    font-size: 15px;
+    padding: 10px 20px;
+}
+.netflix-dropdown-box .dropdown-menu .dropdown-item:hover{
+    background-color: rgba(255, 255, 255, 0.111);
+    color: #fff;
+}
