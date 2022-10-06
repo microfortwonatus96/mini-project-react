@@ -15,3 +15,42 @@
 .button-delete{
   cursor: pointer;
 } */
+.bg-list{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.491), rgba(0, 0, 0, 0.416)) , url(../bg-netflix-login.jpg);
+  background-repeat: no-repeat;
+  height: 200px !important;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.text-list{
+  color: #fff;
+}
+.title-list{
+  position: relative;
+  top:100px;
+  z-index: 100000000;
+  font-weight: bold;
+  font-size: 25px;
+}
+.create-list{
+  position: relative;
+  top:100px;
+}
+.box-title{
+  display: flex;
+  justify-content: space-between;
+}
+.modal-border-bottom{
+  border-bottom: none !important;
+}
+.text-list{
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.text-list:hover{
+  color: rgb(195, 236, 10);
+}
