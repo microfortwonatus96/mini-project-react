@@ -1,14 +1,12 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import Navbar from '../Navbar/Navbar'
+import SmallList from './SmallList'
 
-function List() {
-    const [list, setList] = useState([])
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-
-    // const [nameEdit, setNameEdit] = useState('')
-    // const [descriptionEdit, setDescriptionEdit] = useState('')
-
+const List = () => {
+  const [list, setList] = useState([])
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
 
   const handleName = (event) => {
     console.log(event.target.value)
@@ -66,25 +64,12 @@ function List() {
 //       })
 //     }
 //   }
-//   const handleDelete = (id) => {
-//     if (window.confirm('are you sure you want to delete?')) {
-//       // kalo user klik ok
-//       axios({
-//         method: 'post',
-//         url: `http://localhost:7777/product/delete/${id}`,
-//       }).then((response) => {
-//         console.log(response)
-//         window.location.reload()
-//       }).catch((error) => {
-//         console.error(error)
-//       })
-//     }
-//   }
+
   useEffect(() => {
     // Promise
     axios({
       method: 'get',
-      url: 'https://api.themoviedb.org/3/account/{account_id}/lists?api_key=1e312b8618d863a571b3baecaa0bbce0&language=en-US&page=1&session_id=f4f70c78298c31c2b8ef605b8879c200d9d90a1a',
+      url: 'https://api.themoviedb.org/3/account/{account_id}/lists?api_key=1e312b8618d863a571b3baecaa0bbce0&language=en-US&page=1&session_id=a4a2f0945bb66531c2694cf04f85b1cd278df92b',
     })
       .then(function (response) {
         console.log(response)
@@ -95,8 +80,38 @@ function List() {
         alert('ada error, coba reload halaman')
       })
   }, [])
+
   return (
-    <div className="App">
+    <>
+    <div>
+      <div style={{ margin: 'auto'}}>
+        <Navbar/>
+      </div>
+
+      <form className="row g-3" onSubmit={handleSubmit} style={{position: 'relative', top: '100px'}}>
+        <div className="col-md-6">
+          <label for="inputName" className="form-label">Name</label>
+          <input value={name} onChange={handleName} type="text" className="form-control" id="inputName" />
+        </div>
+        <div className="col-md-6">
+          <label for="inputDescription" className="form-label">description</label>
+          <input value={description} onChange={handleDescription} type="text" className="form-control" id="inputDescription" />
+        </div>
+     
+        <div className="col-12">
+          <button type="submit" className="btn btn-primary">Create List</button>
+        </div>
+      </form>
+
+      <div className="container">
+        <div className="grid-list">
+          {list && list.map((lists) => <SmallList list={lists} />)}
+      </div>
+            {/* <Pager page={page} setPage={setPage}/> */}
+      </div>
+    </div>
+    
+    {/* <div className="container">
       <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-6">
           <label for="inputName" className="form-label">Name</label>
@@ -115,16 +130,21 @@ function List() {
       {list.map((item) => {
         console.log(item)
         return <div>
-          <div className="card" style={{ width: '18rem',  margin: '20px' }}>
-            <div className="card-body">
-              {/* <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6>  */}
-              <p className="card-text">List Name: {item.name} </p>
-              <p className="card-text">Desc: {item.description} </p>
-              {/* <a href="#" className="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</a> */}
-              {/* <a href="#" className="card-link" onClick={() => handleDelete(item.id)}>Delete</a> */}
+          <div className="container">
+            <div className="grid">
+              <div className="card" style={{ width: '18rem', height: '400px',  margin: '20px' }}>
+                <div className="card-body">
+                  <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6> 
+                  <p className="card-text">List Name: {item.name} </p>
+                  <p className="card-text">Desc: {item.description} </p>
+                  <a href="#" className="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</a>
+                  <a href="#" className="card-link" onClick={() => handleDelete(item.id)}>Delete</a>
+                </div>
+              </div>
             </div>
           </div>
-          {/* <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        
+          <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -153,11 +173,13 @@ function List() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       })}
-    </div >
+    </div > */}
+    </>
   );
+
 }
 
 export default List;
