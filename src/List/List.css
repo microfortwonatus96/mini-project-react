@@ -5,18 +5,17 @@
   }
 .box-list{
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 8px;
     width: 270px;
     height: 200px;
     position: relative;
     top: 100px;
 }
-/* 
-.button-delete{
-  cursor: pointer;
-} */
+.overlay{
+  border: 1px solid #fff;
+}
 .bg-list{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.491), rgba(0, 0, 0, 0.416)) , url(../bg-netflix-login.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.891), rgba(0, 0, 0, 0.816)) , url(../bg-login.jpg);
   background-repeat: no-repeat;
   height: 200px !important;
   background-size: cover;
@@ -27,6 +26,7 @@
 }
 .text-list{
   color: #fff;
+  text-decoration: none;
 }
 .title-list{
   position: relative;
@@ -34,6 +34,8 @@
   z-index: 100000000;
   font-weight: bold;
   font-size: 25px;
+  color: #fff;
+
 }
 .create-list{
   position: relative;
@@ -53,4 +55,16 @@
 }
 .text-list:hover{
   color: rgb(195, 236, 10);
+}
+.text-items{
+  color: rgb(195, 236, 10);
+  text-align: center;
+}
+
+/* movie-list */
+.bg-movie-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }

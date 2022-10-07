@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import SmallList from './SmallList'
+import Footer from '../Footer/Footer'
 
 const List = () => {
   const [list, setList] = useState([])
@@ -12,23 +13,6 @@ const List = () => {
     console.log(event.target.value)
     setName(event.target.value)
   }
-  const handleDescription = (event) => {
-    console.log(event.target.value)
-    setDescription(event.target.value)
-  }
-
-//   const handleNameEdit = (event) => {
-//     console.log(event.target.value)
-//     setNameEdit(event.target.value)
-//   }
-//   const handleDescriptionEdit = (event) => {
-//     console.log(event.target.value)
-//     setDescriptionEdit(event.target.value)
-//   }
-//   const handleLanguageEdit = (event) => {
-//     console.log(event.target.value)
-//     setLanguageEdit(event.target.value)
-//   }
 
   const handleSubmit = () => {
     axios({
@@ -45,24 +29,6 @@ const List = () => {
       console.error(error)
     })
   }
-//   const handleEdit = (id) => {
-//     if (window.confirm('are you sure you want to edit?')) {
-//       axios({
-//         method: 'put',
-//         url: `http://localhost:7777/product/${id}`,
-//         data: {
-//           name: nameEdit,
-//           description: descriptionEdit,
-//           price: priceEdit,
-//         }
-//       }).then((response) => {
-//         console.log(response)
-//         window.location.reload()
-//       }).catch((error) => {
-//         console.error(error)
-//       })
-//     }
-//   }
   const getData = () =>{
     axios({
       method: 'get',
@@ -103,10 +69,6 @@ const List = () => {
                       <label for="inputName" className="form-label">Name</label>
                       <input value={name} onChange={handleName} type="text" className="form-control" id="inputName" />
                     </div>
-                    <div className="col-md-12">
-                      <label for="inputDescription" className="form-label">description</label>
-                      <input value={description} onChange={handleDescription} type="text" className="form-control" id="inputDescription" />
-                    </div>   
                     <div className="col-12 mt-3">
                       <button type="submit" className="btn btn-primary">Save</button>
                     </div>
@@ -127,77 +89,15 @@ const List = () => {
             </div>
         </div>
         <div className="grid-list">
-          {list && list.map((lists) => <SmallList list={lists} getData={getData}/>)}
+          {list && list.map((lists) => <SmallList list={lists} />)}
         </div>
       </div>
-    </div>
-    
-    {/* <div className="container">
-      <form className="row g-3" onSubmit={handleSubmit}>
-        <div className="col-md-6">
-          <label for="inputName" className="form-label">Name</label>
-          <input value={name} onChange={handleName} type="text" className="form-control" id="inputName" />
-        </div>
-        <div className="col-md-6">
-          <label for="inputDescription" className="form-label">description</label>
-          <input value={description} onChange={handleDescription} type="text" className="form-control" id="inputDescription" />
-        </div>
-     
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary">Create List</button>
-        </div>
-      </form>
 
-      {list.map((item) => {
-        console.log(item)
-        return <div>
-          <div className="container">
-            <div className="grid">
-              <div className="card" style={{ width: '18rem', height: '400px',  margin: '20px' }}>
-                <div className="card-body">
-                  <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6> 
-                  <p className="card-text">List Name: {item.name} </p>
-                  <p className="card-text">Desc: {item.description} </p>
-                  <a href="#" className="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</a>
-                  <a href="#" className="card-link" onClick={() => handleDelete(item.id)}>Delete</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-          <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Edit Product {item.id}</h5>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">
-                  <form className="row g-3" onSubmit={() => handleEdit(item.id)}>
-                    <div className="col-md-6">
-                      <label for="inputName" className="form-label">Name</label>
-                      <input value={nameEdit} onChange={handleNameEdit} type="text" className="form-control" id="inputName" />
-                    </div>
-                    <div className="col-md-6">
-                      <label for="inputDescription" className="form-label">description</label>
-                      <input value={descriptionEdit} onChange={handleDescriptionEdit} type="text" className="form-control" id="inputDescription" />
-                    </div>
-                    <div className="col-md-6">
-                      <label for="inputPrice" className="form-label">Price</label>
-                      <input value={priceEdit} onChange={handlePriceEdit} type="number" className="form-control" id="inputPrice" />
-                    </div>
-                 
-                    <div className="col-12">
-                      <button type="submit" className="btn btn-primary">Submit</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      })}
-    </div > */}
+      <div>
+        <Footer/>
+      </div>
+    </div>
+
     </>
   );
 

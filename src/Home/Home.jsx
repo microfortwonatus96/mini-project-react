@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "../MovieCard/MovieCard";
 import Navbar from "../Navbar/Navbar";
-// import Pager from './Pager'
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   const [movies, setmovies] = useState();
-  let [page, setPage] = useState(1)
 
   useEffect(() => {
     axios
@@ -15,17 +14,18 @@ const Home = () => {
       )
       .then(({ data }) => setmovies(data.results))
       .catch((err) => console.log(err));
-  }, [page]);
+  }, []);
 
   return (
-    <div>
+    <div >
       <Navbar />
-       {/* <Pager page={page} setPage={setPage}/> */}
       <div className="container">
         <div className="grid">
           {movies && movies.map((movie) => <MovieCard movies={movie} />)}
-        </div>
-        {/* <Pager page={page} setPage={setPage}/> */}
+        </div> 
+      </div>
+      <div>
+        <Footer/>
       </div>
     </div>
   );

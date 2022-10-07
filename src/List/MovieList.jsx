@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import '../List/List.css'
 
 const MovieList = () => {
 
@@ -23,19 +24,13 @@ const [itemMovie, setItemMovie] = useState([])
 // }, [])
 
   return (
-    <div>
-        {itemMovie.map((item) => {
-        console.log(item)
-        return <div>
-          <div className="card" style={{ width: '18rem' }}>
-            <div className="card-body">
-              {/* <p className="card-text">Product Name: {itemMovie.id} </p> */}
-            </div>
-          </div>
-
-        </div>
-      })}
+    <>
+    <div className="container">
+      <div className="bg-movie-list">
+        <p>Hello World</p>
+      </div>
     </div>
+    </>
   )
 }
 
