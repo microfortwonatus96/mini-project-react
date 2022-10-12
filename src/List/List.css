@@ -1,3 +1,4 @@
+/* list */
 .grid-list{
     display:grid;
     grid-template-columns: repeat(4,1fr);
@@ -59,12 +60,35 @@
 .text-items{
   color: rgb(195, 236, 10);
   text-align: center;
+  text-decoration: none;
 }
+.text-items:hover{
+  color: rgb(240, 216, 8);
+}
+.f-12{
+  /* font-size: 12px; */
+}
+/* end-list */
 
-/* movie-list */
-.bg-movie-list{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+/* detail movie-list */
+.grid-img{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 0.5em;
 }
+.detail-img{
+  border: 1px solid #ccc;
+  position: relative;
+  top: 100px;
+}
+.detail-img img{
+  width:300px;
+  height:380px;
+}
+.icon-delete{
+  cursor: pointer;
+}
+.icon-delete:hover{
+  color: red;
+}
+/* end-detail-movie-list */

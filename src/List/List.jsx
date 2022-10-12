@@ -1,8 +1,13 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
-import SmallList from './SmallList'
+// import SmallList from './SmallList'
 import Footer from '../Footer/Footer'
+import { API_KEY } from "../Form/Api_Key";
+import { URL_TMDB } from "../Form/Api_Key";
+import { SESSION_ID } from '../Form/Api_Key';
+import { Link } from 'react-router-dom'
+import '../List/List.css'
 
 const List = () => {
   const [list, setList] = useState([])
@@ -29,10 +34,26 @@ const List = () => {
       console.error(error)
     })
   }
-  const getData = () =>{
+
+  const handleDelete = (id) => {
+    if (window.confirm('are you sure you want to delete?')) {
+        axios({
+        method: 'delete',
+        url: `${URL_TMDB}/list/${id}?api_key=${API_KEY}&session_id=${SESSION_ID}`,
+        }).then((response) => {
+            console.log("cek:", response)
+            window.location.reload()
+        }).catch((error) => {
+            console.error(error)
+        })
+    }   
+  }
+
+  useEffect(() => {
+    // Promise
     axios({
       method: 'get',
-      url: 'https://api.themoviedb.org/3/account/{account_id}/lists?api_key=1e312b8618d863a571b3baecaa0bbce0&language=en-US&page=1&session_id=a4a2f0945bb66531c2694cf04f85b1cd278df92b',
+      url: `${URL_TMDB}/account/{account_id}/lists?api_key=${API_KEY}&language=en-US&page=1&session_id=${SESSION_ID}`,
     })
       .then(function (response) {
         console.log(response)
@@ -42,10 +63,6 @@ const List = () => {
         console.error(error)
         alert('ada error, coba reload halaman')
       })
-  }
-  useEffect(() => {
-    // Promise
-    getData()
   }, [list])
 
   return (
@@ -78,20 +95,38 @@ const List = () => {
             </div>
       </div>
       {/* end-modal */}
-  
-      <div className="container">
-        <div className="box-title">
-            <div>
-              <p className="title-list">My List</p>
+
+      <div className='container'>
+         <div className="box-title">
+             <div>
+               <p className="title-list">My List</p>
+             </div>
+             <div>
+               <button className="btn btn-primary create-list" data-bs-toggle="modal" data-bs-target="#exampleModal">Create List</button>
+             </div>
+         </div>
+
+      <div className='grid-img'>
+      {list && list.map((list) => {
+        return (
+          <div>
+            <div className="box-list bg-list gap-3" >
+                <div key={list.id}>
+                    <Link to={`/detailMovieList/${list.id}`} class=" text-list">{list.name}</Link>
+                </div>
+                <div>
+                    <Link to={`/detailMovieList/${list.id}`} class="text-items">{list.item_count} items</Link>
+                </div>
+        
+                <div className="d-block">
+                    <button className="btn btn-danger f-12" onClick={() => handleDelete(list.id)}>Delete</button>
+                </div>
             </div>
-            <div>
-              <button className="btn btn-primary create-list" data-bs-toggle="modal" data-bs-target="#exampleModal">Create List</button>
-            </div>
-        </div>
-        <div className="grid-list">
-          {list && list.map((lists) => <SmallList list={lists} />)}
-        </div>
+          </div>
+        )
+        })} 
       </div>
+    </div> 
 
       <div>
         <Footer/>

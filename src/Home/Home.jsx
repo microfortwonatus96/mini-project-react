@@ -3,6 +3,8 @@ import axios from "axios";
 import MovieCard from "../MovieCard/MovieCard";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { API_KEY } from "../Form/Api_Key";
+import { URL_TMDB } from "../Form/Api_Key";
 
 const Home = () => {
   const [movies, setmovies] = useState();
@@ -10,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=1e312b8618d863a571b3baecaa0bbce0&language=en-US&page=1`
+        `${URL_TMDB}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
       )
       .then(({ data }) => setmovies(data.results))
       .catch((err) => console.log(err));
