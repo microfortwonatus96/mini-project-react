@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar';
 import { API_KEY } from "../Form/Api_Key";
 import { URL_TMDB } from "../Form/Api_Key";
 import { SESSION_ID } from '../Form/Api_Key';
+import Footer from '../Footer/Footer';
 
 const MovieList = () => {
   const [details, setDetail] = useState([])
@@ -52,23 +53,29 @@ const MovieList = () => {
     </div>
 
     <div className='container'>
+      <div className='img-center'>
       <div className='grid-img'>
     {details && details.map((detail) => {
       return (
       <>
       <div className='detail-img' key={detail.id}>
-        <p style={{color: '#fff'}}>{detail.id}</p>
+        {/* <p style={{color: '#fff'}}>{detail.id}</p> */}
         <img src={`https://image.tmdb.org/t/p/w300/${ detail && detail.poster_path}`} alt={`${detail && detail.title} Poster`}/>
         {/* <i class="bi bi-x-lg icon-delete" onClick={() => handleDelete(detail.id)}></i> */}
         <div className="d-block">
-          <button className="btn btn-danger f-12" onClick={() => handleDelete(detail.id)}>Delete</button>
+          <button style={{width: '100%'}} className="btn btn-danger f-12" onClick={() => handleDelete(detail.id)}>Delete</button>
         </div>
       </div>
       </>
       )
     })} 
       </div>
+      </div>
     </div>  
+
+    <div>
+      <Footer />
+    </div>
     </>
   )
 }

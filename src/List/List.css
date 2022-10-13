@@ -71,13 +71,17 @@
 /* end-list */
 
 /* detail movie-list */
+.img-center{
+  display: flex;
+  justify-content: center;
+}
 .grid-img{
   display:grid;
   grid-template-columns: repeat(4,1fr);
   grid-gap: 0.5em;
 }
 .detail-img{
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   position: relative;
   top: 100px;
 }
