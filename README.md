@@ -1,9 +1,19 @@
-Cara jalanin
+<h1 align="center">
+  <p align="center">Movies</p>
+</h1>
 
-1 npm install (jika sudah di install, pastikan ada folder node_modules)
-2 npm start
+## Library & Framework
 
-Cara Login:
+- **Bootstrap**
 
-username: MicroFortwonatus
-password: mhimik123
+- **React**
+
+## How to run the App
+
+1. **npm install (jika sudah di install, pastikan ada folder node_modules)**
+2. **npm start**
+
+## How to Login the App
+
+**username: MicroFortwonatus**
+**password: mhimik123**

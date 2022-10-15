@@ -12,21 +12,38 @@ footer{
     justify-content: space-between;
     padding: 2em 3em;
 }
-
-.footer-text{
-    width:40%
+.text-about-us{
+    width:80%;
+    margin-top: 20px;
 }
-.contact{
-    margin-right: 3em;
-
-}
-
 .copyright{
     background-color: #000;
     text-align: center;
     padding:1em
 }
-
-.icons li{
-    list-style: none;
+.d-block{
+    /* display: block !important; */
+}
+.button-footer{
+    display: block !important;
+    margin: 20px 0px;
+    padding: 10px;
+    width: 260px;
+    border-radius: 20px;
+    /* background-color: #ccc; */
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #212529;
+    border: 1px solid #fff;
+    color: #fff;
+}
+.button-footer:hover{
+    background-color: #fff;
+    color: #000;
+    transition: all 0.5s ease-in-out;
+}
+.text-email{
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
 }

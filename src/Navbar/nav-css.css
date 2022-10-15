@@ -40,4 +40,6 @@ body{
 .text-style-nav:hover{
     color: #fff;
 }
-
+.pointer{
+    cursor: pointer;
+}

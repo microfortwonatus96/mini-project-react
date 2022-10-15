@@ -1,0 +1,31 @@
+/* netflix-video */
+.netflix-home-video{
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    /* top: 70px !important; */
+}
+.netflix-home-video video{
+    width: 100%;
+}
+.netflix-home-video .top{
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 55px;
+    background: linear-gradient(to top, transparent, #000);
+}
+.netflix-home-video .content{
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+}
+.netflix-home-video .content .left{
+    margin-left: 80px;
+}
+.netflix-home-video .content img{
+    margin-top: 190px;
+    width: 300px;
+}

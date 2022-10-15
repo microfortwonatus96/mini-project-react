@@ -5,7 +5,7 @@ const MovieCard = ({movies}) => {
     return (
         <div className="card-movies">
             <div className="overlay">
-              <img src={`https://image.tmdb.org/t/p/w200/${ movies && movies.poster_path}`} alt={`${movies && movies.title} Poster`}/>
+              <img src={`https://image.tmdb.org/t/p/w500/${ movies && movies.poster_path}`} alt={`${movies && movies.title} Poster`}/>
             </div>
             <div class="card-body-movies">
               <section class="d-flex justify-content-between">
