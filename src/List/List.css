@@ -81,7 +81,7 @@
   grid-gap: 0.5em;
 }
 .detail-img{
-  /* border: 1px solid #ccc; */
+  border: 1px solid #ccc;
   position: relative;
   top: 100px;
 }
