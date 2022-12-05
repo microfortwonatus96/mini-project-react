@@ -20,4 +20,4 @@
 
 ## Netlify
 
-- **https://micro-movie.netlify.app**
+- **https://blues-movie.netlify.app**
