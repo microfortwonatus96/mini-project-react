@@ -44,6 +44,7 @@ const Form = () => {
         .then(requestToken => {
           axios({
             method: 'post',
+            // url: `https://api-bootcamp.do.dibimbing.id/api/v1/login`,
             url: `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${API_KEY}`,
             data: {
               request_token: requestToken,
